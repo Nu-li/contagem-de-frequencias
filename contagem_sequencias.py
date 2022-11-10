@@ -2,11 +2,18 @@ arquivo = #[seu arquivo aqui]
 
 file = open(arquivo, 'r')
 lines = file.readlines()
-seq = []
+upArq = []
 
-for line in lines: # lê o arquivo e manda pra variável seq só o que não começa com '>'
-    if line.find('>') != 0:
-        seq.append(line)
+for line in lines:#transforma str em caixa alta
+    newarq = line.upper()
+    upArq.append(newarq)
+#print(upArq)
+
+seq = []
+for iline in upArq: # lê o arquivo e manda pra variável seq só o que não começa com '>'
+    if iline.find('>') != 0:
+        seq.append(iline)
+#print(seq)
 
 seqDict = {}
 
