@@ -12,16 +12,21 @@ seqDict = {}
 
 for sequencia in seq:#monta um dicionário com chave = sequência/valor = frequência  
     count = seq.count(sequencia)
-    seqDict[sequencia] = count/#[insira o valor base da frequência]
+    seqDict[sequencia] = count/len(seq) #[insira o valor base da frequência]
 #print(seqDict)
-print(seqDict.values())
+#print(seqDict.values())
 
 selctList = []
 aux = "" #variável auxiliar
+count = 1
 
 for sequ, frequ in seqDict.items():#monta uma lista a partir do dicionário apenas com as sequências selecionadas
     if aux != sequ:
         if frequ > 0.01:
-            selctList.append(sequ)
+            sequ = sequ.rstrip("\n")
+            selctList.append(">SEQ_" + str(count) + "\n")
+            selctList.append(sequ + "\n")
+
+            count = count + 1
     aux = sequ
 print(selctList)
